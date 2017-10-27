@@ -8,10 +8,15 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css">
 		<!-- icons font awesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- My css -->
+		<link rel="stylesheet" href="css/my-css.css">
+		<!-- Animations -->
+		<link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
 		<!-- cdn Script VueJs -->
 		<script src="https://unpkg.com/vue"></script>
 	</head>
 	<body>
+		<!-- NavBar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<a href="" class="navbar-brand"><i class="fa fa-book"></i> LearnVuejs</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,40 +28,30 @@
 				</ul>
 			</div>
 		</nav>
-		<div id="app" class="container pt-3 text-center">
-			<div class="col-sm-4 alert alert-success container-fluid h3">{{ message }}</div>
-		</div>
-		<div class="container text-center" id="app-2">
-			<div class="col-sm-4 alert alert-warning container-fluid" v-bind:title="message3">
-				Fecha y hora de carga: <span class="font-weight-bold text-success">{{ message3 }}</span>
+		<!-- end -->
+		<div class="container pt-3 text-center">
+			<!-- contend -->
+			<!-- Lamp Action -->
+			<div id="lamp">
+				<!-- Buttons -->
+				<div class="col-sm-2 alert alert-success container-fluid h3 text-center">
+					<button class="btn btn-outline-success" :disabled="!btnlamp" @click="btnlamp = !btnlamp">
+					On
+					</button>
+					<button class="btn btn-outline-danger" :disabled="btnlamp" @click="btnlamp = !btnlamp">
+					Off
+					</button>
+				</div>
+				<!-- Images Lamp -->
+				<div class="col-sm-3 container-fluid">
+					<img class="alert-dark rounded" v-if="btnlamp" src="https://k61.kn3.net/2/D/B/9/C/7/801.png" alt="" style="cursor: pointer;width: 180px" @click="btnlamp = !btnlamp">
+					<img class="alert-warning rounded" v-if="!btnlamp" src="https://k61.kn3.net/2/1/F/A/B/7/8F1.png" alt="" style="cursor: pointer;width: 180px" @click="btnlamp = !btnlamp">
+				</div>
 			</div>
+			<!-- End Lamp Action -->
 		</div>
-		<div id="app-6" class="container text-center">
-			<div class="col-sm-4 alert alert-primary container-fluid">
-			<h4>{{ message }}</h4>			
-			<input type="text" class="form-control" v-model="message">
-			</div>
-		</div>
-		<script>
-			var app = new Vue({
-				el: '#app',
-				data: {
-				message: 'Hello Vue!'
-				}
-			})
-			var app2 = new Vue({
-				el: '#app-2',
-				data: {
-				message3: new Date().toLocaleString()
-				}
-			})
-			var app6 = new Vue({
-				el: '#app-6',
-				data: {
-				message: 'Hello Vue!'
-				}
-			})
-		</script>
+		<!-- My Scripts -->
+		<script src="js/my-vue.js"></script>
 		<!-- cdn Script bootstrap -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
